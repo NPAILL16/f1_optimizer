@@ -42,7 +42,7 @@ Ce script va :
 ### Complexité de chaque programme :
 
 1. **Lecture du fichiers avec pandas (`fichier_matrice_adjacente`) :**
-   - **Complexité en temps :** O(n*m) où n est le nombre de lignes et m le nombre de colonnes du fichier CSV. La fonction pandas ici ne rajoute rien elle permet juste de faire le pont entre les fichiers.
+   - **Complexité en temps :** O(n*m) où n est le nombre de lignes et m le nombre de colonnes du fichier CSV. Cette complexité vient ici de la fonction pandas
 
 2. **Ajustement des distances en fonction des températures avec score (`score_temperature`) :**
    - **Complexité en temps :** O(n^2) où n est le nombre de villes (itération sur la matrice d'adjacence).
