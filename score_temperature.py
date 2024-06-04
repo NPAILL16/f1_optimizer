@@ -11,9 +11,9 @@ def ajuster_distances_avec_temperature(matrice, fichier):
                 temperature = df_temp.iloc[i, j]
                 
                 # Appliquer un bonus ou un malus selon la température
-                if 10 <= temperature <= 20:
+                if 15 <= temperature <= 22.5:
                     matrice[i][j] *= 0.9  # Bonus pour les températures entre 10 et 20 degrés
-                else:
+                elif temperature < 18.8 or temperature > 18.8: 
                     ecart_temperature = abs(temperature - 15)
                     matrice[i][j] *= 1 + (ecart_temperature / 100)  # Malus proportionnel à l'écart 
 

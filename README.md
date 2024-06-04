@@ -37,6 +37,19 @@ Ce script va :
 - Ajuster les distances en fonction des températures.
 - Utiliser un algorithme glouton pour déterminer l'ordre optimal des courses.
 
+## Complexité des programmes
+
+### Complexité de chaque programme :
+
+1. **Lecture du fichiers avec pandas (`fichier_matrice_adjacente`) :**
+   - **Complexité en temps :** O(n*m) où n est le nombre de lignes et m le nombre de colonnes du fichier CSV. La fonction pandas ici ne rajoute rien elle permet juste de faire le pont entre les fichiers.
+
+2. **Ajustement des distances en fonction des températures avec score (`score_temperature`) :**
+   - **Complexité en temps :** O(n^2) où n est le nombre de villes (itération sur la matrice d'adjacence).
+
+3. **Algorithme glouton (`algorithme_glouton`) :**
+   - **Complexité en temps :** O(n^2) pour chaque ville, il parcourt toutes les autres villes pour trouver la plus proche non visitée.
+
 ## Algorithme Glouton
 
 Un algorithme glouton est une méthode qui fait des choix locaux optimaux à chaque étape avec l'espoir de trouver une solution globale optimale. Dans ce projet, l'algorithme glouton choisit à chaque étape la ville non visitée la plus proche comme prochaine destination.
@@ -53,6 +66,19 @@ Pour obtenir des solutions plus précises, on pourrait envisager des approches p
 - **Optimisation exacte** : Utilisation d'algorithmes exacts comme la programmation linéaire, bien que cela puisse nécessiter des ressources computationnelles considérables pour de grands ensembles de données.
 
 Ces méthodes nécessitent généralement une grande puissance de calcul et une quantité importante de données pour fonctionner efficacement, mais elles peuvent considérablement améliorer la qualité des solutions obtenues.
+
+## Pourquoi pas le machine learning pour notre algorithme glouton ?
+
+L'utilisation du machine learning pour résoudre le problème du voyageur de commerce (TSP) / glouton dans ce contexte peut être complexe pour plusieurs raisons :
+
+1. **Quantité de données :**
+   - Le TSP nécessite beaucoup de données pour entraîner des modèles de machine learning de manière efficace. Avec seulement 24 villes et les distances en km etc etc, le nombre de combinaisons possibles est limité, ce qui ne permet pas de générer suffisamment de données pour un apprentissage profond.
+
+2. **Nature du problème :**
+   - Le TSP est un problème d'optimisation combinatoire, et les algorithmes de machine learning sont généralement mieux adaptés à des problèmes de classification ou de régression. Les algorithmes d'optimisation exacte ou heuristiques sont souvent plus efficaces pour des problèmes comme le TSP.
+
+3. **Puissance de calcul :**
+   - Entraîner des modèles de machine learning pour des problèmes d'optimisation nécessite des ressources computationnelles importantes, souvent au-delà de la capacité des ordinateurs personnels, en particulier ton vieil ordi.
 
 ## Conclusion
 

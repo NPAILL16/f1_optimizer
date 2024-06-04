@@ -18,6 +18,7 @@ def main():
     print("Ordre de course optimal:")
     for indice_ville in meilleur_chemin:
         print(f"Ville {indice_ville + 1}")  # Ajouter 1 pour les indices des villes (base 1)
+    print(f"Distance totale parcourue : {distance_totale:.2f} km")
 
 if __name__ == "__main__":
     main()

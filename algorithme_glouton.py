@@ -1,25 +1,25 @@
 def glouton(matrice):
-    nombre_villes = len(matrice)
-    visitees = [False] * nombre_villes
-    chemin = [0]  # Commencer depuis la première ville (indice 0)
-
+    n = len(matrice)
+    visitees = [False] * n
+    chemin = [0]
     visitees[0] = True
+    distance_totale = 0
 
-    for _ in range(nombre_villes - 1):
-        derniere_visitee = chemin[-1]
-        distance_minimale = float('inf')
-        ville_la_plus_proche = -1
+    ville_actuelle = 0
+    for _ in range(n - 1): # On doit visiter toutes les villes
+        prochaine_ville = None
+        distance_min = float('inf')
+        for ville in range(n): # On cherche la ville la plus proche
+            if not visitees[ville] and 0 < matrice[ville_actuelle][ville] < distance_min: # On ne visite pas les villes déjà visitées
+                distance_min = matrice[ville_actuelle][ville]
+                prochaine_ville = ville
+        chemin.append(prochaine_ville) # On ajoute la ville à la liste des villes visitées
+        visitees[prochaine_ville] = True
+        distance_totale += distance_min
+        ville_actuelle = prochaine_ville
 
-        for ville in range(nombre_villes):
-            if not visitees[ville]:
-                # Si la ville n'est pas visitée et la distance est plus courte
-                if matrice[derniere_visitee][ville] < distance_minimale:
-                    distance_minimale = matrice[derniere_visitee][ville]
-                    ville_la_plus_proche = ville
+    # Retourner à la ville de départ
+    distance_totale += matrice[ville_actuelle][0] # On ajoute la distance pour revenir à la ville de départ
+    chemin.append(0) # On revient à la ville de départ
 
-        chemin.append(ville_la_plus_proche)
-        visitees[ville_la_plus_proche] = True
-
-    # Retourner à la ville de départ pour compléter le circuit
-    chemin.append(0)
-    return chemin
+    return chemin, distance_totale
